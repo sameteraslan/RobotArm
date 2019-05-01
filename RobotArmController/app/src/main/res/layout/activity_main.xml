@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/robot_image"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="46dp" />
+
+        <LinearLayout
+            android:paddingTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <SeekBar
+                android:id="@+id/servo5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progress="40"
+                android:max="590"
+                android:paddingTop="45dp"
+                android:paddingBottom="20dp"
+                android:progressDrawable="@drawable/custom_seek_bar"
+                />
+
+            <SeekBar
+                android:id="@+id/servo4"
+                android:progress="1200"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/custom_seek_bar"
+                android:max="2000"
+                android:paddingBottom="20dp" />
+
+            <SeekBar
+                android:id="@+id/servo3"
+                android:progress="400"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/custom_seek_bar"
+                android:max="1550"
+                android:paddingBottom="25dp" />
+
+            <SeekBar
+                android:id="@+id/servo2"
+                android:progress="650"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/custom_seek_bar"
+                android:max="1650"
+                android:paddingBottom="100dp" />
+
+            <SeekBar
+                android:id="@+id/servo1"
+                android:progress="550"
+                android:progressDrawable="@drawable/custom_seek_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="180"
+                android:max="1200"
+
+                android:paddingTop="35dp"/>
+
+            <SeekBar
+                android:id="@+id/servo0"
+                android:progress="700"
+                android:layout_width="match_parent"
+                android:progressDrawable="@drawable/custom_seek_bar"
+                android:layout_height="wrap_content"
+                android:max="2000" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
