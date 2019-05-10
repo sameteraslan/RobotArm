@@ -3,31 +3,6 @@ import time
 from threading import Thread
 import socket
 import sys
-
-HOST = '192.168.43.188' #this is your localhost
-PORT = 4400 
- 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#socket.socket: Socket olusturmak icin kullanilir.
-#socket.AF_INET: Address Format, Internet = IP Addresses.
-#socket.SOCK_STREAM: 2 yonlu (two way) connection based
-print 'socket created'
-  
-#Bind socket to Host and Port
-try:
-    s.bind((HOST, PORT))
-except socket.error as err:
-    print 'Bind Failed, Error Code: ' + str(err[0]) + ', Message: ' + err[1]
-    sys.exit()
- 
-print 'Socket Bind Success!'
- 
-
-#listen(): This method sets up and start TCP listener.
-s.listen(10)
-print 'Socket is now listening'
-
-
  
 class Servo():
     def __init__(self,name,pin,pi,f,angle,time=0.003):
@@ -93,9 +68,32 @@ class Arm():
             self.servo_5.set_angle(b)
         else:
             print 'hata'        
-
-        
+	
 myarm = Arm()
+
+HOST = '192.168.43.188' #this is your localhost
+PORT = 4400 
+
+
+#socket.socket: Socket olusturmak icin kullanilir.
+#socket.AF_INET: Address Format, Internet = IP Addresses.
+#socket.SOCK_STREAM: 2 yonlu (two way) connection based
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+print 'socket created'
+  
+#Bind socket to Host and Port
+try:
+    s.bind((HOST, PORT))
+except socket.error as err:
+    print 'Bind Failed, Error Code: ' + str(err[0]) + ', Message: ' + err[1]
+    sys.exit()
+ 
+print 'Socket Bind Success!'
+
+
+#listen(): This method sets up and start TCP listener.
+s.listen(10)
+print 'Socket is now listening'
 
 # s.accept() : Client gelmesini bekler
 conn, addr = s.accept()
